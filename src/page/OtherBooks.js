@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react";
 import BookCards from "./BookCard";
-const BestSellerBook = () => {
-
+const OtherBook = () => {
+      
    const [Books, setBooks] = useState([]);
        
-   useEffect(() => {
+    useEffect(() => {
 
         fetch('http://localhost:5000/books')
         .then(res => res.json())
         .then(res => setBooks(res.data))
         .catch(err => console.log(err))
- }, [])
-            
+   }, [])
+
     return ( 
-
-       <div>
-       <BookCards Books={Books}  headLine="Best Seller Books"/> 
-       </div>
-
-     );            
+        <div>
+              <BookCards Books={Books}  headLine="Other Books"/> 
+        </div>
+     );
 }
  
-export default BestSellerBook;
+export default OtherBook;

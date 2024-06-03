@@ -12,16 +12,8 @@ import { Pagination } from 'swiper/modules';
 import {Link} from 'react-router-dom';
 import { FaCartShopping } from "react-icons/fa6";
 
-const BookCards = ({headLine}) => {
-       const [Books, setBooks] = useState([]);
-       
-       useEffect(() => {
-
-             fetch('http://localhost:5000/books')
-             .then(res => res.json())
-             .then(res => setBooks(res.data))
-             .catch(err => console.log(err))
-      }, [])
+const BookCards = ({headLine ,Books}) => {
+      
 
      
     return ( 
