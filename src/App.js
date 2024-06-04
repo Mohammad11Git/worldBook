@@ -3,6 +3,7 @@ import Navbarapp from './page/Navbar';
 import Home from './page/Home';
 import SingleBook from './page/SingleBook';
 import MyFooter from './page/MyFooter';
+import Shop from './page/Shop';
 function App() {
   return (
     <Router>
@@ -15,6 +16,9 @@ function App() {
                 </Route>
                 <Route path="/book/:_id">
                     <SingleBook/>
+                </Route>
+                <Route path="/shop">
+                      <Shop/>
                 </Route>
                </Switch>
                <MyFooter/>
