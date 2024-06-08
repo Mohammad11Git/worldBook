@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 import bookimg from "../assets/awardbooks.png"
 const PromoBanner = () => {
     return ( 
