@@ -33,11 +33,15 @@ const SiBar = () => {
           <Sidebar.Item href="#" icon={HiShoppingBag}>
             Products
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiArrowSmRight}>
-            Sign In
+          <Sidebar.Item  icon={HiArrowSmRight}>
+            <Link to="/login">
+             Sign In
+            </Link>
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiTable}>
-            Sign Up
+            <Link to="/logout">
+              Log Out
+            </Link>
           </Sidebar.Item>
         </Sidebar.ItemGroup>
         <Sidebar.ItemGroup>

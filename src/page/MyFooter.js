@@ -10,6 +10,11 @@ const MyFooter = () => {
                    <div>
                       <Footer.Title title="Books" />
                        <Footer.LinkGroup col>
+                       <Footer.Link>
+                           <Link to="/">
+                                Home
+                           </Link>
+                        </Footer.Link>
                         <Footer.Link>
                            <Link to="/about">
                                 About
