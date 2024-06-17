@@ -19,8 +19,8 @@ const UpLoardBook = () => {
         "Children Books",
         "Travel",
         "Horror",
-        "Religion"
-
+        "Religion",
+        "Non-Fiction"
     ]
     
      const [selectedBookCategory,setselectedBookCategory] = useState(bookCategories[0]);
@@ -41,16 +41,30 @@ const UpLoardBook = () => {
             const description = form.description.value;
             const bookPdfURL = form.bookPdfURL.value;
             
-           const bookobj = {
-              title, author, imageURL, genres, description, bookPdfURL
+           const BookObj = {
+              title,author,imageURL,genres,description,bookPdfURL
            }
-                 console.log(bookobj); 
+   
+          fetch("http://localhost:5000/books",{
+            method:"POST",
+            headers:{
+              "Content-Type": "application/json",
+            },
+            body: BookObj
+          }).then(res => res.json()).then(data => {
+            //console.log(data)
+            alert("Book uploaded successfully!!!")
+            form.reset();
+          })
+
+
+
      }
            
            
     return ( 
  <div className="px-4 my-12">
-    <h2 className="mb-8 text-3xl font-bold"> UpLoad A book  </h2>
+    <h2 className="mb-8 text-3xl font-bold hover:text-blue-500 transition-all ease-in"> UpLoad A book  </h2>
      <form onSubmit={handleBookSubmit} className="flex lg:w-[1100px] flex-col flex-wrap gap-4">
       <div className="flex gap-8">
         <div className="lg:w-1/2">
