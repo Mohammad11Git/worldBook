@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import GoogleLogo from "../assets/google-logo.svg"
+import Cookies from "js-cookie";
 
 const SignUP = () => {
+    //const history = useNavigate();
 
    const handleSignUp = (event) => {
        event.preventDefault();
@@ -10,11 +12,29 @@ const SignUP = () => {
        const email = form.email.value;
        const password = form.password.value;
        console.log(email,password);
+       fetch('http://localhost:5000/signup', {
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name:"Mohamad",
+                email: email,
+                password: password
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            console.log(res);
+            Cookies.set(
+                "userDataLogin",
+                JSON.stringify({ email, password }),
+                { expires: 1 }
+              );
+        })
+        .catch(err => console.log(err))
    }
-   const handleRegister = () =>{
-              
-
-   }
+  
 
     return (  
 
@@ -45,7 +65,7 @@ const SignUP = () => {
                             </form>
                         </div>
                         <hr />
-                        <div onClick={handleRegister} className="flex w-full items-center flex-col mt-5 gap-3">
+                        <div  className="flex w-full items-center flex-col mt-5 gap-3">
                             <button className="block"> <img src={GoogleLogo} alt="" className="w-12 h-12 inline-block"/>Login with Google</button>
                         </div>
                     </div>

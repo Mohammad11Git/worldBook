@@ -24,7 +24,7 @@ const UpLoardBook = () => {
     ]
     
      const [selectedBookCategory,setselectedBookCategory] = useState(bookCategories[0]);
-
+     
      const handleChangeSelectedValue = (event) => {
         //console.log(event.target.value);
        setselectedBookCategory(event.target.value);
@@ -50,9 +50,9 @@ const UpLoardBook = () => {
             headers:{
               "Content-Type": "application/json",
             },
-            body: BookObj
+            body:BookObj ,
           }).then(res => res.json()).then(data => {
-            //console.log(data)
+            console.log(data);
             alert("Book uploaded successfully!!!")
             form.reset();
           })

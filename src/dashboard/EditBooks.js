@@ -53,7 +53,7 @@ const EditBooks = () => {
               headers:{
                 "Content-Type": "application/json",
               },
-              body: updateBookObj
+              body:updateBookObj   ,
           })
           .then(res => res.json())
           .then(res => {

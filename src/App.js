@@ -1,7 +1,6 @@
 import {Outlet} from 'react-router-dom';
 import Navbarapp from '../src/page/Navbar' ;
 import MyFooter from '../src/page/MyFooter';
-
 function App() {
   return (
      <>
