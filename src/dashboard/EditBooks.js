@@ -53,13 +53,14 @@ const EditBooks = () => {
               headers:{
                 "Content-Type": "application/json",
               },
-              body:updateBookObj   ,
+              body: JSON.stringify( updateBookObj)
           })
           .then(res => res.json())
           .then(res => {
             console.log(res.data);
             alert("Book  is updated successfully!!!")
           })
+          .catch(err => console.log(err))
      }
                  
  return ( 

@@ -28,10 +28,8 @@ const Navbarapp = () => {
       // navItem
        const navItem = [
              {link:"Home", path: "/"},
-             {link:"About", path: "/about"},
              {link:"Shop", path: "/shop"},
-             {link:"Sell Your Book", path: "/admin/dashboard"},
-             {link:"Blog", path: "/blog"}
+             {link:"Sell Your Book", path: "/admin/dashboard"}      
        ]
   return (
         <header className='w-full z-30 bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300 bg-teal-100 shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>

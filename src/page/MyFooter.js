@@ -16,20 +16,12 @@ const MyFooter = () => {
                   </Link>
                 </Footer.Link>
                 <Footer.Link>
-                  <Link to="/about">
-                    About
-                  </Link>
-                </Footer.Link>
-                <Footer.Link>
                   <Link to="/shop">
                     Shop
                   </Link>
                 </Footer.Link>
                 <Footer.Link >
                   <Link to="/admin/dashboard">Sell Your Book</Link>
-                </Footer.Link>
-                <Footer.Link>
-                  <Link to="/blog">Blog</Link>
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
