@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import {  Button, Label, TextInput,Select,Textarea } from "flowbite-react";
+import axios from "axios";
+
 const UpLoardBook = () => {
      
     const bookCategories = [
@@ -30,35 +32,28 @@ const UpLoardBook = () => {
        setselectedBookCategory(event.target.value);
      }
      //handle book submission
-     const handleBookSubmit = (event) => {
+     const handleBookSubmit =async (event) => {
             event.preventDefault();
             const form = event.target;
-
             const title = form.title.value;
             const author = form.author.value;
             const imageURL = form.imageURL.value;
             const genres = form.genreName.value;
             const description = form.description.value;
             const bookPdfURL = form.bookPdfURL.value;
-            
+            const rating =1;
            const BookObj = {
-              title,author,imageURL,genres,description,bookPdfURL
+              title,author,imageURL,genres,description,bookPdfURL,rating
            }
-   
-          fetch("http://localhost:5000/books",{
-            method:"POST",
-            headers:{
-              "Content-Type": "application/json",
-            },
-            body:BookObj ,
-          }).then(res => res.json()).then(data => {
-            console.log(data);
-            alert("Book uploaded successfully!!!")
+           try {
+            const res = await axios.post("http://localhost:5000/books", BookObj);
+            console.log(res);
+            alert("Book uploaded successfully!!!");
             form.reset();
-          })
-
-
-
+           }
+           catch(err) {
+            console.log(err);
+           }
      }
            
            
@@ -114,10 +109,6 @@ const UpLoardBook = () => {
         <Button type="submit" className="mt-5">Upload Book</Button>
      
     </form>
-
-
-
-
 </div>
      );
 }

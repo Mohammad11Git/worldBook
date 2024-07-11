@@ -30,7 +30,7 @@ const Shop = () => {
                     <p className="font-normal text-gray-700 dark:text-gray-400">
                          It is "captivating", suggesting the book will be engaging and difficult to put down.
                     </p>
-                    <button className="bg-blue-700 text-white font-semibold py-2 hover:bg-blue-300 transition-all ease-linear rounded"> Buy Now</button>
+                    <button className="bg-blue-700 text-white font-semibold py-2 hover:bg-blue-300 transition-all ease-linear rounded"> Add to favorites</button>
                   </Card>
                 )
                 )

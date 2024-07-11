@@ -13,6 +13,7 @@ import EditBooks from "../dashboard/EditBooks";
 import SignUP from "../page/Signup";
 import Login from "../page/Login";
 import Logout from "../page/Logout";
+import Favourite from "../page/favourite";
 
   
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         {
             path:"/book/:_id",
             element: <SingleBook/>
+        },
+        {
+            path:"/Favourite",
+            element:<Favourite/>
         }
       ]
     },

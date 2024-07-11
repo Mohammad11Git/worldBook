@@ -49,7 +49,7 @@ const EditBooks = () => {
            }
           //update data
           fetch(`http://localhost:5000/books/${id}`,{
-              method:"PATCH",
+              method:"PUT",
               headers:{
                 "Content-Type": "application/json",
               },
