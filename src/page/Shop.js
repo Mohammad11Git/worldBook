@@ -1,10 +1,17 @@
 
 import { Card } from "flowbite-react";
 import { useEffect, useState } from "react";
+import { useAppContext } from "../context/appContext";
+
 const Shop = () => {
      
      const [Books, setBooks] = useState([]);
-       
+
+     const {favorites , addToFavorites} = useAppContext();
+
+     console.log("favourite" ,favorites); 
+
+         
      useEffect(() => {
 
         fetch('http://localhost:5000/books')
@@ -29,9 +36,12 @@ const Shop = () => {
                     </h5>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
                          It is "captivating", suggesting the book will be engaging and difficult to put down.
-                    </p>
-                    <button className="bg-blue-700 text-white font-semibold py-2 hover:bg-blue-300 transition-all ease-linear rounded"> Add to favorites</button>
+                    </p>              
+                  
+                    <button onClick={() => addToFavorites(book)} className="bg-blue-700 text-white font-semibold py-2 hover:bg-blue-300 transition-all ease-linear rounded"> Add to favorites</button>
+                    
                   </Card>
+                  
                 )
                 )
             }

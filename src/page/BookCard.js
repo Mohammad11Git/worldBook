@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 import {Link} from 'react-router-dom';
-import { FaCartShopping } from "react-icons/fa6";
+import { FaHeartCircleCheck ,FaStarHalf  } from "react-icons/fa6";
 
 const BookCards = ({headLine ,Books}) => {
       
@@ -49,7 +49,7 @@ const BookCards = ({headLine ,Books}) => {
                     <div className="relative flex justify-center items-center bg-violet-50 w-50 h-50 rounded  m-1">
                          <img src={book.imageURL} alt="" className="h-72 w-60 p-4 " />
                          <div className=" absolute top-0 right-3  bg-blue-600 hover:bg-black p-2 m-2 rounded">
-                          <FaCartShopping className=" w-4 h-4 text-white "/>
+                          <FaHeartCircleCheck className=" w-4 h-4 text-white "/>
                          </div>
                     </div>
                     <div className="flex justify-between">
@@ -57,8 +57,9 @@ const BookCards = ({headLine ,Books}) => {
                           <h3 className="text-black font-semibold">{book.title}</h3>
                           <p className="text-gray-900">{book.author}</p>
                       </div>
-                      <div>
-                           <p className="text-blue-700 font-bold">{book.rating} $</p>
+                      <div className='flex'>
+                           <p className="text-black font-bold"> <FaStarHalf className='text-yellow-200 w-6 h-6' />  {book.rating} </p>
+                           
                       </div>
                     </div>
                 </Link>

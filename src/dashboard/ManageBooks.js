@@ -15,7 +15,7 @@ const ManageBook = () => {
     }, [])
     //delete a book
     const handleDelete = (id) =>{
-          console.log(id);
+    
           fetch(`http://localhost:5000/books/${id}`,{
               method:"DELETE",
              
@@ -44,7 +44,7 @@ return (
           </Table.HeadCell>
         </Table.Head>
         {
-          AllBooks.map((book, index) =>  <Table.Body className="divide-y" key={book._id}>
+          Array.isArray(AllBooks) && AllBooks.map((book, index) =>  <Table.Body className="divide-y" key={book._id}>
           <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
              <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
               {index + 1}

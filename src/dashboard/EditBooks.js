@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 const EditBooks = () => {
      const {id} = useParams();
-     const { title, author, imageURL, description, bookPdfURL} = useLoaderData();
+     const { title, author, imageURL, description, bookPdfURL ,rating} = useLoaderData();
      const bookCategories = [
         "fiction",
         "historical",
@@ -43,9 +43,9 @@ const EditBooks = () => {
             const genres = form.genreName.value;
             const description = form.description.value;
             const bookPdfURL = form.bookPdfURL.value;
-            
+            const rating =form.rating.value;
            const updateBookObj = {
-              title,author,imageURL,genres,description,bookPdfURL
+              title,author,imageURL,genres,description,bookPdfURL,rating
            }
           //update data
           fetch(`http://localhost:5000/books/${id}`,{
@@ -112,6 +112,12 @@ const EditBooks = () => {
         </div>
         <TextInput id="bookPdfURL" type="text" name="bookPdfURL" placeholder="Book PDF URL" required defaultValue={bookPdfURL} />
       </div>
+       <div>
+        <div className="mb-2 block">
+          <Label htmlFor="rating" value="Rating" />
+        </div>
+        <TextInput id="rating" type="text" name="rating" placeholder="Rating" required defaultValue={rating} />
+       </div>
         <Button type="submit" className="mt-5">Updata Book</Button>
      
     </form>

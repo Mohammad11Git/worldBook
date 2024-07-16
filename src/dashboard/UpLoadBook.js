@@ -41,7 +41,7 @@ const UpLoardBook = () => {
             const genres = form.genreName.value;
             const description = form.description.value;
             const bookPdfURL = form.bookPdfURL.value;
-            const rating =1;
+            const rating =form.rating.value;
            const BookObj = {
               title,author,imageURL,genres,description,bookPdfURL,rating
            }
@@ -105,6 +105,12 @@ const UpLoardBook = () => {
           <Label htmlFor="bookPdfURL" value="Book PDF URL" />
         </div>
         <TextInput id="bookPdfURL" type="text" name="bookPdfURL" placeholder="Book PDF URL" required />
+      </div>
+      <div>
+        <div className="mb-2 block">
+          <Label htmlFor="rating" value="Rating" />
+        </div>
+        <TextInput id="rating" type="text" name="rating" placeholder="Rating" required />
       </div>
         <Button type="submit" className="mt-5">Upload Book</Button>
      

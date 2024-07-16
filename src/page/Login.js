@@ -10,7 +10,6 @@ const Login = () => {
         email: "",
         password: "",
       };
-      //const history = useNavigate();
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -63,7 +62,7 @@ const Login = () => {
                                 </div>
                                 <p>If you havent an account. Please <Link to="/sign-up" className="text-blue-600 underline">Sign Up</Link> Here </p>
                                 <div class="relative">
-                                    <button className="bg-blue-500 text-white rounded-md px-6 py-2">Sign Up</button>
+                                    <button className="bg-blue-500 text-white rounded-md px-6 py-2">Login</button>
                                 </div>
                             </form>
                         </div>

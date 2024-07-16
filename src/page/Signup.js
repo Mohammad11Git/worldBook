@@ -2,37 +2,32 @@ import React from "react";
 import { Link } from "react-router-dom";
 import GoogleLogo from "../assets/google-logo.svg"
 import Cookies from "js-cookie";
+import axios from "axios";
 
 const SignUP = () => {
-    //const history = useNavigate();
 
-   const handleSignUp = (event) => {
+   const handleSignUp = async (event) => {
        event.preventDefault();
        const form = event.target;
        const email = form.email.value;
        const password = form.password.value;
        console.log(email,password);
-       fetch('http://localhost:5000/signup', {
-            method: "POST",
-            headers:{
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                name:"Mohamad",
-                email: email,
-                password: password
-            })
-        })
-        .then(res => res.json())
-        .then(res => {
-            console.log(res);
+       const values= {
+        email,password,name:"Mohamad",
+       }
+       try {
+        const res = await axios.post("http://localhost:5000/signup", values);
+        console.log(res);
             Cookies.set(
                 "userDataLogin",
                 JSON.stringify({ email, password }),
                 { expires: 1 }
               );
-        })
-        .catch(err => console.log(err))
+       }
+       catch(err) {
+        console.log(err);
+
+       }
    }
   
 
