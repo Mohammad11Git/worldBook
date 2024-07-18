@@ -17,7 +17,7 @@ const BookCards = ({headLine ,Books}) => {
      
     return ( 
     <div className="my-16 px-7  lg:px-24">
-           <h2 className="text-4xl text-center font-bold my-4 p-2  text-black transition-all ease-in duration-200 hover:text-blue-700" >{headLine}</h2>
+           <h2 className="text-4xl text-center font-bold my-3 p-1  text-black transition-all ease-in duration-200 hover:text-blue-700" >{headLine}</h2>
            {/*cards */}
         <div className="">
             <Swiper
@@ -41,14 +41,14 @@ const BookCards = ({headLine ,Books}) => {
              },
            }}
             modules={[Pagination]}
-             className="mySwiper h-full w-full "
+             className="mySwiper h-full w-full !p-10 "
           >
           {  Array.isArray(Books) && Books.map((book) => (
                 <SwiperSlide key={book._id} className="">
                 <Link to = {`/book/${book._id}`}>
                     <div className="relative flex justify-center items-center bg-violet-50 w-50 h-50 rounded  m-1">
                          <img src={book.imageURL} alt="" className="h-72 w-60 p-4 " />
-                         <div className=" absolute top-0 right-3  bg-blue-600 hover:bg-black p-2 m-2 rounded">
+                         <div className=" absolute top-0 right-1  bg-blue-600 hover:bg-black p-2 m-2 rounded">
                           <FaHeartCircleCheck className=" w-4 h-4 text-white "/>
                          </div>
                     </div>

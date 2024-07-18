@@ -1,7 +1,7 @@
 import { createContext ,useContext} from "react";
 import { useState } from "react";
 
-export const AppContext = createContext(null)
+ const AppContext = createContext(null)
 
 export const useAppContext = () => {
 
@@ -30,7 +30,7 @@ const AppContextProvider = ({ children }) => {
 
 
     return (
-        <AppContext.Provider value={ {favorites , addToFavorites, removeFromFavorites ,setFavorites}}>
+        <AppContext.Provider value={ {favorites , addToFavorites, removeFromFavorites}}>
                 {children}
         </AppContext.Provider>
     );

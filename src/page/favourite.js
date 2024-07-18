@@ -8,7 +8,6 @@ const Favourite = () => {
      console.log("favourite" ,favorites);
     
     
-
     return ( 
         <div className="mt-28 px-4 lg:px-24 ">
         <div className=" p-3 grid gap-8 my-12 lg:grid-cols-3  sm:grid-cols-2 md:grid-cols-3 grid-cols-1">
@@ -16,7 +15,7 @@ const Favourite = () => {
                  favorites.length > 0 ? favorites.map((book) => (
                        <Card key={book._id}
                         >
-                         
+                     
                     <img src={book.imageURL} alt="" className="h-96 rounded" />
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                       <p>

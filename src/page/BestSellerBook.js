@@ -6,7 +6,7 @@ const BestSellerBook = () => {
        
    useEffect(() => {
 
-        fetch('http://localhost:5000/books')
+        fetch('http://localhost:5000/books?p=0')
         .then(res => res.json())
         .then(res => setBooks(res.data))
         .catch(err => console.log(err))
