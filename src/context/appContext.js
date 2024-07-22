@@ -1,40 +1,86 @@
-import { createContext ,useContext} from "react";
-import { useState } from "react";
 
- const AppContext = createContext(null)
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Cookies from "js-cookie";
+import Shop from '../page/Shop';
+import Favourite from '../page/favourite';
 
-export const useAppContext = () => {
 
-     const context = useContext(AppContext);
+const AppContextProvider = () => {
+    
+  const [Books, setBooks] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  const token = Cookies.get("token") || "";
 
-     if(context === undefined){
-        throw new Error("Appcontext must be within appContextProvider!")
-     }
+  useEffect(() => {
 
-     return context;
-};
+    fetch('http://localhost:5000/books')
+    .then(res => res.json())
+    .then(res => setBooks(res.data))
+    .catch(err => console.log(err))
+    LoadFavorites();
+   }, []);
 
-const AppContextProvider = ({ children }) => {
+    const LoadFavorites = () => {
+        axios.get('http://localhost:5000/user/favourite_book', {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }).then(
+             res =>{
+                setFavorites(res.data);
+             }
+          ).catch(error => {
+            console.error("Error loading favoritebooks",error);
+          });
+        }
+    
 
-    const [favorites,setFavorites] = useState([]);
+    const addToFavourite = (book) => {
+   
+             axios.post("http://localhost:5000/user/favourite_book/add", book, {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+        }).then(
+            res =>{
+                LoadFavorites();
+            }
+         ).catch(error => {
+           console.error("Error loading favoritebooks",error);
+         });
+        }
+        const removeFromFavorites = (book) =>{
+            axios.delete(`http://localhost:5000/user/favourite_book/remove/${book._id}`, {
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`,
+                },
+              }).then(
+                res =>{
+                    LoadFavorites();
+                }
+             ).catch(error => {
+               console.error("Error loading favoritebooks",error);
+             });
+        }
+     
 
-    const addToFavorites = (book) =>{
-        const oldFavorites = [...favorites];
-        const newFavorites = oldFavorites.concat(book);
-        setFavorites(newFavorites);
-    };
-    const removeFromFavorites = (id) =>{
-        const newBook =[...favorites].filter(book => book.id !== id);
-        setFavorites(newBook);
-    };
-
+    
 
     return (
-        <AppContext.Provider value={ {favorites , addToFavorites, removeFromFavorites}}>
-                {children}
-        </AppContext.Provider>
+        <div>       
+           <Shop Books={Books} addToFavorites={addToFavourite} />
+
+           < Favourite favorites={favorites} deleteFromFavorites={removeFromFavorites} />
+        </div>
+               
+        
     );
-             
+     
 };
+
 
 export default AppContextProvider;
