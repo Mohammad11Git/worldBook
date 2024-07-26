@@ -58,8 +58,7 @@ const BookCards = ({headLine ,Books}) => {
                           <p className="text-gray-900">{book.author}</p>
                       </div>
                       <div className='flex'>
-                           <p className="text-black font-bold"> <FaStarHalf className='text-yellow-200 w-6 h-6' />  {book.rating} </p>
-                           
+                           <p className="text-black font-bold"> <FaStarHalf className='text-yellow-200 w-6 h-6' />  {book.rating} </p>       
                       </div>
                     </div>
                 </Link>

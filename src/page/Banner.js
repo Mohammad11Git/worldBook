@@ -1,6 +1,6 @@
 import React from "react";
 import BannerCard from "./BannerCard";
-
+import {Link} from 'react-router-dom';
 const Banner = () => {
     return (  
         <div className="px-4 lg:px-24 bg-teal-100 flex items-center">
@@ -15,7 +15,9 @@ const Banner = () => {
                         </p>
                       </div>
                        <input type="search" name="search" id="search" className="py-2 px-2 rounded-s-sm outline-none" placeholder="search a book"  />
+                       <Link to="/Search">
                        <button className="bg-blue-700 px-6 py-2 text-white font-medium hover:bg-black transition-all ease-in duration-200 ">Search</button>
+                       </Link>
                    </div>
                    {/*side right */}
                    <div>

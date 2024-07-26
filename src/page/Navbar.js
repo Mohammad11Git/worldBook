@@ -30,7 +30,8 @@ const Navbarapp = () => {
              {link:"Home", path: "/"},
              {link:"Shop", path: "/shop"},
              {link:"Sell Your Book", path: "/admin/dashboard"},
-             {link: "Your Favourite",path:"/Favourite"}   
+             {link: "Your Favourite",path:"/Favourite"},
+             {link:"Search",path:"/Search"}  
        ]
   return (
         <header className='w-full z-30 bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300 bg-teal-100 shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>

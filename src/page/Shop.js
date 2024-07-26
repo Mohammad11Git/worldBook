@@ -1,9 +1,38 @@
 
+import axios from "axios";
 import { Card } from "flowbite-react";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 
-const Shop = ({ Books, addToFavorites }) => {
-     
+const Shop = () => {
+  const [Books, setBooks] = useState([]);
+  const token = Cookies.get("token") || "";
+
+
+  useEffect(() => {
+
+    fetch('http://localhost:5000/books')
+    .then(res => res.json())
+    .then(res => setBooks(res.data))
+    .catch(err => console.log(err))
+   }, []);
+
+   const addToFavourite = (book) => {
+    console.log(token);
+   
+    axios.post("http://localhost:5000/user/favourite_book/add", book, {
+     headers: {
+       "Content-Type": "application/json",
+       Authorization: `${token}`,
+     },
+}).then(res =>{
+ console.log(res);
+   }
+).catch(error => {
+  console.error("Error loading favoritebooks",error);
+});
+}
       
 
     return (  
@@ -25,7 +54,7 @@ const Shop = ({ Books, addToFavorites }) => {
                          It is "captivating", suggesting the book will be engaging and difficult to put down.
                     </p>              
                   
-                    <button onClick={() => addToFavorites(book)} className="bg-blue-700 text-white font-semibold py-2 hover:bg-blue-300 transition-all ease-linear rounded"> Add to favorite  </button>
+                    <button onClick={() => addToFavourite(book)} className="bg-blue-700 text-white font-semibold py-2 hover:bg-blue-300 transition-all ease-linear rounded"> Add to favorite  </button>
                     
                   </Card>
                   
