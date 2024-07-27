@@ -11,16 +11,17 @@ const SignUP = () => {
        const form = event.target;
        const email = form.email.value;
        const password = form.password.value;
-       console.log(email,password);
+       const name = form.name.value;
+       console.log(email,password,name);
        const values= {
-        email,password,name:"Mohamad",
+        email,password,name
        }
        try {
         const res = await axios.post("http://localhost:5000/signup", values);
         console.log(res);
             Cookies.set(
                 "userDataLogin",
-                JSON.stringify({ email, password }),
+                JSON.stringify({ email, password , name }),
                 { expires: 1 }
               );
        }
@@ -46,8 +47,10 @@ const SignUP = () => {
                         <div class="divide-y divide-gray-200">
                             <form onSubmit={handleSignUp} className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                 <div class="relative">
-                                    <input  id="email" name="email" type="text" className="peer rounded h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-400" placeholder="Email address" />
-                                   
+                                    <input  id="name" name="name" type="text" className="peer rounded h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-400" placeholder="Full name" />    
+                                </div>
+                                <div class="relative">
+                                    <input  id="email" name="email" type="text" className="peer rounded h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-400" placeholder="Email address" />    
                                 </div>
                                 <div class="relative">
                                     <input  id="password" name="password" type="password" className="peer rounded h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-blue-400" placeholder="Password" />

@@ -11,17 +11,22 @@ const MyFooter = () => {
               <Footer.Title title="Books" />
               <Footer.LinkGroup col>
                 <Footer.Link>
-                  <Link to="/">
-                    Home
-                  </Link>
-                </Footer.Link>
-                <Footer.Link>
                   <Link to="/shop">
                     Shop
                   </Link>
                 </Footer.Link>
+                <Footer.Link>
+                  <Link to="/Search">
+                    Search
+                  </Link>
+                </Footer.Link>
                 <Footer.Link >
                   <Link to="/admin/dashboard">Sell Your Book</Link>
+                </Footer.Link>
+                <Footer.Link>
+                  <Link to="/Favourite">
+                    Favourite
+                  </Link>
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>

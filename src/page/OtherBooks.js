@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
 import BookCards from "./BookCard";
+import { Spinner } from "flowbite-react";
 const OtherBook = () => {
       
    const [Books, setBooks] = useState([]);
+   const [loading,setLoading] = useState(true);
        
     useEffect(() => {
 
         fetch('http://localhost:5000/books?p=1')
         .then(res => res.json())
-        .then(res => setBooks(res.data))
+        .then(res => {
+            setLoading(false)
+            setBooks(res.data)
+        })
         .catch(err => console.log(err))
    }, [])
 
     return ( 
         <div>
               <BookCards Books={Books}  headLine="Other Books"/> 
+              { loading === true && <div className=" flex justify-center p-10">  <Spinner color="info" aria-label="Info spinner example"/> </div> }
         </div>
      );
 }

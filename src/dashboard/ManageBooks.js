@@ -2,15 +2,19 @@ import React from "react";
 import { Table } from "flowbite-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Spinner } from "flowbite-react";
 const ManageBook = () => {
   
      const [AllBooks, setAllBooks] = useState([]);
-       
+     const [loading,setLoading] = useState(true);
      useEffect(() => {
  
          fetch('http://localhost:5000/books')
          .then(res => res.json())
-         .then(res => setAllBooks(res.data))
+         .then(res => {
+          setLoading(false)
+          setAllBooks(res.data)
+        })
          .catch(err => console.log(err))
     }, [])
     //delete a book
@@ -65,6 +69,7 @@ return (
         }
        
       </Table>
+      { loading === true && <div className=" flex justify-center p-20">  <Spinner color="info" aria-label="Info spinner example"/> </div> }
     
 </div> 
     );
