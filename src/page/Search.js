@@ -11,10 +11,12 @@ const Search = () => {
   const[books,setBooks] = useState([]);
   const [Alert,setAlert] = useState("");
   const [loading,setLoading] = useState(true);
+  const [Found,setfound] = useState(true);
 
 
   const getData = async () => {
     if(guery !== ""){
+      setfound(false);
       const result = await axios.get(`http://localhost:5000/books/search/${guery}`);
       setLoading(false);
       setBooks(result.data);
@@ -37,7 +39,7 @@ const Search = () => {
         getData();
   }
 
-
+    console.log(books);
     return ( 
         <div className="mt-28 px-4 lg:px-24">
             <h2 className=" p-2 text-5xl font-bold text-center hover:text-blue-700 transition-all ease-in ">Search Books</h2>
@@ -80,7 +82,11 @@ const Search = () => {
 
                   ))
                  }
+                 
             </div>
+            {
+                  books.length === 0 && Found === false && <div className=" flex justify-center mt-20 font-bold text-4xl text-center"> Not Found </div>
+             }
            
         </div>
      );
