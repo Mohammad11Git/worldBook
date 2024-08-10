@@ -31,8 +31,7 @@ const SignUP = () => {
       router("/login");
     } catch (err) {
       console.log(err);
-    }
-    finally {
+    } finally {
       setIsLoading(false);
     }
   };
@@ -88,13 +87,15 @@ const SignUP = () => {
                   Here{" "}
                 </p>
                 <div class="relative">
-                  <button className="bg-blue-500 text-white rounded-md px-6 py-2"
+                  <button
+                    className="bg-blue-500 text-white rounded-md px-6 py-2"
                     disabled={isLoading}
-                    onClick={() => handleSignUp()}
+                    type="submit"
+                    // onClick={() => handleSignUp()}
                   >
-                     {isLoading && (
-                     <Spinner color="info" aria-label="Info spinner example" />
-                     )}
+                    {isLoading && (
+                      <Spinner color="info" aria-label="Info spinner example" />
+                    )}
                     Sign Up
                   </button>
                 </div>

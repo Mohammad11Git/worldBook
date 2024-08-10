@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleLogo from "../assets/google-logo.svg";
 import { Spinner } from "flowbite-react";
+import axios from "axios";
 
 const Login = () => {
   const router = useNavigate();
@@ -12,44 +13,34 @@ const Login = () => {
   const [email, setEmail] = useState(initialValues?.email);
   const [password, setPassword] = useState(initialValues?.password);
 
-  const handleLogin = (event) => {
-    setIsLoading(true);
+  const handleLogin = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     console.log(email, password);
     if (email === "admin@gmail.com" && password === "admin") {
       setTimeout(() => {
         router("/admin/dashboard");
       }, 1000);
     } else {
-      fetch("http://localhost:5000/login/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      try {
+        const res = await axios.post("http://localhost:5000/login/", {
           email: email,
           password: password,
-        }),
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          console.log(res.user);
-          Cookies.set("token", res.token, { expires: 30 });
-          Cookies.set("userInfo", JSON.stringify(res.user), {
-            expires: 30,
-          });
-          localStorage.setItem("userInfo", JSON.stringify(res.user));
-          Cookies.remove("userDataLogin");
-          router("/");
-        })
-        .catch((err) => {
-          console.log(err)
-        }).finally(() =>{
-          setIsLoading(false);
-        })
-        
+        });
+        console.log(res.data.user);
+        Cookies.set("token", res.data.token, { expires: 30 });
+        Cookies.set("userInfo", JSON.stringify(res.data.user), {
+          expires: 30,
+        });
+        localStorage.setItem("userInfo", JSON.stringify(res.data.user));
+        Cookies.remove("userDataLogin");
+        router("/");
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setIsLoading(false);
       }
-    
+    }
   };
 
   return (
@@ -64,10 +55,7 @@ const Login = () => {
               </h1>
             </div>
             <div class="divide-y divide-gray-200">
-              <form
-                onSubmit={handleLogin}
-                className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7"
-              >
+              <form onSubmit={handleLogin} className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                 <div class="relative">
                   <input
                     id="email"
@@ -98,13 +86,15 @@ const Login = () => {
                   Here{" "}
                 </p>
                 <div class="relative">
-                  <button className="bg-blue-500 text-white rounded-md px-6 py-2"
+                  <button
+                  type="submit"
+                    className="bg-blue-500 text-white rounded-md px-6 py-2"
                     disabled={isLoading}
-                    onClick={() => handleLogin()}
+                  
                   >
                     {isLoading && (
-                  <Spinner color="info" aria-label="Info spinner example" />
-                     )}
+                      <Spinner color="info" aria-label="Info spinner example" />
+                    )}
                     Login
                   </button>
                 </div>
