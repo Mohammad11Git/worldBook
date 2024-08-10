@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import userImg from "../assets/profile.jpg"
+import userImg from "../assets/profile.png"
+
+
 import { Sidebar } from "flowbite-react";
 import { BiBuoy } from "react-icons/bi";
 import { HiArrowSmRight, HiChartPie, HiInbox, HiOutlineCloudUpload, HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
@@ -27,32 +29,10 @@ const SiBar = () => {
               Manage Books
              </Link>
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiUser}>
-            Users
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiShoppingBag}>
-            Products
-          </Sidebar.Item>
-          <Sidebar.Item  icon={HiArrowSmRight}>
-            <Link to="/login">
-             Sign In
-            </Link>
-          </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiTable}>
-            <Link to="/logout">
+            <Link to="/">
               Log Out
             </Link>
-          </Sidebar.Item>
-        </Sidebar.ItemGroup>
-        <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiChartPie}>
-            Upgrade to Pro
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiViewBoards}>
-            Documentation
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={BiBuoy}>
-            Help
           </Sidebar.Item>
         </Sidebar.ItemGroup>
       </Sidebar.Items>

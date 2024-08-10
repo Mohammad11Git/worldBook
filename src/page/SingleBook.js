@@ -14,7 +14,7 @@ const SingleBook = () => {
              <h2 className=" font-bold ">{book.title}</h2>
              <p className="font-thin" > {book.author}</p>
              <p className="font-normal text-gray-700 dark:text-gray-400">{book.description}</p>
-             <p>{book.genres}</p>
+             <p className=" flex gap-1">{book.genres}</p>
           </Card>
         </div>
      );

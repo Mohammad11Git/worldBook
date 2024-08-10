@@ -3,7 +3,7 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Avatar } from "flowbite-react";
 import { Rating } from "flowbite-react";
-import propic from "../assets/profile.jpg";
+import propic from "../assets/profile.png";
 import team1 from "../assets/team-1.webp";
 import team2 from "../assets/team-2.webp";
 import team3 from "../assets/team-3.webp";

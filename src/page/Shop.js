@@ -21,7 +21,7 @@ const Shop = () => {
     .catch(err => console.log(err))
    }, []);
 
-   const addToFavourite = (book) => {
+   const addToFavBooks = (book) => {
     console.log(token);
    
     axios.post("http://localhost:5000/user/favourite_book/add", book, {
@@ -58,7 +58,7 @@ const Shop = () => {
                          It is "captivating", suggesting the book will be engaging and difficult to put down.
                     </p>              
                   
-                    <button onClick={() => addToFavourite(book)} className="bg-blue-700 text-white font-semibold py-2 hover:bg-blue-300 transition-all ease-linear rounded"> Add to favorite  </button>
+                    <button onClick={() => addToFavBooks(book)} className="bg-blue-700 text-white font-semibold py-2 hover:bg-blue-300 transition-all ease-linear rounded"> Add to favorite  </button>
                     
                   </Card>
                   

@@ -1,6 +1,7 @@
 import React from "react";
 import BannerCard from "./BannerCard";
 import {Link} from 'react-router-dom';
+import { FaArrowRightLong } from "react-icons/fa6";
 const Banner = () => {
     return (  
         <div className="px-4 lg:px-24 bg-teal-100 flex items-center">
@@ -14,10 +15,12 @@ const Banner = () => {
                           worlds largest community of book lovers on Goodreads.
                         </p>
                       </div>
-                       <input type="search" name="search" id="search" className="py-2 px-2 rounded-s-sm outline-none" placeholder="search a book"  />
+                      <div className=" flex flex-col items-center gap-2 md:flex-row justify-start ">
+                       <p className=" text-gray-500 flex justify-start items-center gap-2 ">  Click here to Search <FaArrowRightLong />  </p>
                        <Link to="/Search">
-                       <button className="bg-blue-700 px-6 py-2 text-white font-medium hover:bg-black transition-all ease-in duration-200 ">Search</button>
+                       <button className="bg-blue-700 px-6 py-2 text-white font-medium hover:bg-black transition-all ease-in duration-200 rounded ">Search</button>
                        </Link>
+                      </div>
                    </div>
                    {/*side right */}
                    <div>

@@ -55,10 +55,9 @@ const Search = () => {
                <button type="submit" className="bg-blue-700 px-6 py-4 text-white font-medium rounded hover:bg-black transition-all ease-in duration-200 "><FaSearch className="text-white h-4 w-4" /></button>
               </div>
             </form>
-            { loading === true && <div className=" flex justify-center p-20">  <Spinner color="info" aria-label="Info spinner example"/> </div> }
             <div className=" p-3 grid gap-8 my-12 lg:grid-cols-3  sm:grid-cols-2 md:grid-cols-3 grid-cols-1">
                  {
-                  Array.isArray(books) && books.map((book) => (
+                      books.map((book) => (
                     
                     <Card
                     >
@@ -80,12 +79,14 @@ const Search = () => {
                       </Link> 
                     </Card>
 
-                  ))
-                 }
-                 
+                  ))  
+                 }      
             </div>
             {
-                  books.length === 0 && Found === false && <div className=" flex justify-center mt-20 font-bold text-4xl text-center"> Not Found </div>
+                 loading === false && books.length === 0 && Found === false && <div className=" flex justify-center mt-20 font-bold text-4xl text-center"> Not Found </div>
+             }
+             {
+                loading === false && Found === true && <div className=" flex justify-center p-20">  <Spinner color="info" aria-label="Info spinner example"/> </div>
              }
            
         </div>
