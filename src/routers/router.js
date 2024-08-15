@@ -12,7 +12,6 @@ import ManageBook from "../dashboard/ManageBooks";
 import EditBooks from "../dashboard/EditBooks";
 import SignUP from "../page/Signup";
 import Login from "../page/Login";
-import Logout from "../page/Logout";
 import Favourite from "../page/favourite";
 import Search from "../page/Search";
 
@@ -72,9 +71,6 @@ const router = createBrowserRouter([
     },{
         path: "Login",
         element: <Login/>
-    },{
-        path:"logout",
-        element: <Logout/>
     }
   ]);
 
