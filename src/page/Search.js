@@ -41,7 +41,7 @@ const Search = () => {
 
     console.log(books);
     return ( 
-        <div className="mt-28 px-4 lg:px-24">
+        <div className=" mt-28 px-4 lg:px-24 ">
             <h2 className=" p-2 text-5xl font-bold text-center hover:text-blue-700 transition-all ease-in ">Search Books</h2>
             <form className="flex flex-col justify-center items-center mt-10 gap-1" onSubmit={ onSubmit}>
              { Alert !== "" && <div className="bg-red-700 px-10 py-2 rounded flex justify-start">
@@ -50,9 +50,9 @@ const Search = () => {
                 </h3>
               </div>
               }
-              <div className="flex gap-1">
+              <div className="flex gap-2 flex-col md:flex-row ">
                <input type="text" name="search" id="search" className="py-3 px-10 rounded outline-none" placeholder="search a book" autoComplete="off" onChange={onChange} value = {guery} />
-               <button type="submit" className="bg-blue-700 px-6 py-4 text-white font-medium rounded hover:bg-black transition-all ease-in duration-200 "><FaSearch className="text-white h-4 w-4" /></button>
+               <button type="submit" className="bg-blue-700 px-6 py-4 text-white font-medium rounded flex justify-center items-center hover:bg-black transition-all ease-in duration-200 "><FaSearch className="text-white h-4 w-10 " /></button>
               </div>
             </form>
             <div className=" p-3 grid gap-8 my-12 lg:grid-cols-3  sm:grid-cols-2 md:grid-cols-3 grid-cols-1">

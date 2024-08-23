@@ -68,9 +68,9 @@ const Navbarapp = () => {
     }
   };
   return (
-    <header className="w-full z-30 bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300 bg-teal-100 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+    <header className=" z-30 bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300 bg-teal-100 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
       <nav
-        className={`py-4 lg:px-24 px-4 ${
+        className={`py-4 lg:px-22 px-5 ${
           isSticky
             ? "sticky top-0 left-0 right-0 bg-teal-100 "
             : " bg-teal-100 "
@@ -86,7 +86,7 @@ const Navbarapp = () => {
             Books
           </Link>
           {/*nav Item for Large device */}
-          <ul className="md:flex space-x-12 hidden">
+          <ul className="md:flex space-x-10 hidden">
             {navItem.map(({ link, path }) => (
               <Link
                 key={path}

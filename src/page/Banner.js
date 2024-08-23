@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 const Banner = () => {
   return (
-    <div className="px-4 lg:px-24 bg-teal-100 flex items-center">
-      <div className=" flex w-full flex-col md:flex-row justify-between items-center gap-12 py-40">
+    <div className="px-3 lg:px-24 bg-teal-100 flex items-center">
+      <div className=" flex  flex-col md:flex-row  items-center gap-10 py-40">
         {/*side left */}
         <div className=" text-center md:text-start ">
           <h2 className="text-5xl font-bold leading-snug text-black">
@@ -34,7 +34,7 @@ const Banner = () => {
           </div>
         </div>
         {/*side right */}
-        <div>
+        <div >
           <BannerCard />
         </div>
       </div>
